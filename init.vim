@@ -25,10 +25,21 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
+"Coc 
+" Stable version of coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Keeping up to date with master
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+"Dev Icons
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 set relativenumber
 " ncm2-loom
+
+"devicons setting fonts
+set guifont=MesloLGS\ Nerd\ Font:h11
 
 " turn on spelling and make a spell file
 set spelllang=en_us
@@ -167,9 +178,11 @@ let g:signify_sign_change            = '~'
 let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
 
+let mapleader = ' '
+nmap <leader>1 :bn<CR>
+nmap <leader>2 :bp<CR>
+nmap <C-w> :bd<CR>
 
-" Jump though hunks
-nmap <leader>gj <plug>(signify-next-hunk)
-nmap <leader>gk <plug>(signify-prev-hunk)
-nmap <leader>gJ 9999<leader>gJ
-nmap <leader>gK 9999<leader>gk
+nmap <C-s> :w<CR>
+nmap <C-l> :source %<CR>
+
