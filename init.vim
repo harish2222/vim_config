@@ -33,13 +33,25 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 "Dev Icons
 Plug 'ryanoasis/vim-devicons'
+"themes
+Plug 'morhetz/gruvbox'
+
+Plug 'joshdick/onedark.vim'
+
 call plug#end()
 
 set relativenumber
 " ncm2-loom
-
+set noerrorbells
+set hidden
+set nohlsearch
+set incsearch
+set signcolumn=yes
+set colorcolumn=100
+set shortmess +=c
+highlight Normal guibg=NONE
 "devicons setting fonts
-set guifont=MesloLGS\ Nerd\ Font:h11
+set guifont=Hack\ Nerd\ Font:h11
 
 " turn on spelling and make a spell file
 set spelllang=en_us
@@ -91,7 +103,7 @@ let g:ale_fixers={'python': ['black']}
 
 " lightline 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -157,10 +169,8 @@ let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
-
 " Switch to your current theme
 let g:airline_theme = 'onedark'
-
 " Always show tabs
 set showtabline=2
 
@@ -185,4 +195,5 @@ nmap <C-w> :bd<CR>
 
 nmap <C-s> :w<CR>
 nmap <C-l> :source %<CR>
-
+nnoremap <C-c> "+y<CR>
+nnoremap <C-v> "+gp<CR>
