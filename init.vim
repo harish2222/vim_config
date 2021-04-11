@@ -156,8 +156,8 @@ set smarttab                    " Uses shiftwidth and tabstap to insert blanks w
 set shiftwidth=4                " One tab == four spaces.
 set tabstop=4                   " One tab == four spaces.<Paste>
 set scrolloff=6
-" python alias (,p runs python on script. ,t times python script)
-nmap ,p :w<CR>:!python %<CR>
+nmap ,nj :w<CR>:terminal<CR>:!node %<CR>
+
 " SQLite should use SQL highlights. See :help ft-sql for more info
 autocmd BufNewFile,BufRead *.sqlite set syntax=sql
 
@@ -194,6 +194,16 @@ nmap <leader>2 :bp<CR>
 nmap <C-w> :bd<CR>
 
 nmap <C-s> :w<CR>
-nmap <C-l> :source %<CR>
+nmap <C-l> :w<CR>:source %<CR>
 nnoremap <C-c> "+y<CR>
 nnoremap <C-v> "+gp<CR>
+
+" For runnong pyhton without terminal
+nmap ,p :w<CR>:!python %<CR>
+" For running python file in an interpreter
+nmap ,tp :w<CR>:terminal<CR>python %<CR>
+
+"for java file to compile and run
+nmap ,jc :w<CR>!javac %<CR>:!java %<CR>
+nmap ,cc :w<CR>:!gcc %<CR>
+nmap ,cr :!%.exe<CR>
