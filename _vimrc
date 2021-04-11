@@ -1,2 +1,2 @@
-source %USERNAME%\AppData\Local\nvim\init.vim
-source %USERNAME%\AppData\Local\nvim\coc_config.vim
+source C:\Users\haris\AppData\Local\nvim\init.vim
+source C:\Users\haris\AppData\Local\nvim\coc_config.vim
