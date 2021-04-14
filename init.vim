@@ -38,6 +38,9 @@ Plug 'morhetz/gruvbox'
 
 Plug 'joshdick/onedark.vim'
 
+"ctrlp
+Plug 'ctrlpvim/ctrlp.vim'
+
 call plug#end()
 
 set relativenumber
@@ -171,6 +174,19 @@ let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
 " Switch to your current theme
 let g:airline_theme = 'onedark'
+
+
+"ctrlp config
+let g:ctrlp_map = '<c-p>'
+
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_switch_buffer = 'et'
+let g:ctrlp_root_markers = ['pom.xml', '.p4ignore']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows"
+
+
 " Always show tabs
 set showtabline=2
 
@@ -188,13 +204,20 @@ let g:signify_sign_change            = '~'
 let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
 
+
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+
+"custom keybindings
 let mapleader = ' '
 nmap <leader>1 :bn<CR>
 nmap <leader>2 :bp<CR>
 nmap <C-w> :bd<CR>
 
 nmap <C-s> :w<CR>
-nmap <C-l> :w<CR>:source %<CR>
+nmap <C-q> :w<CR>:source %<CR>
 nnoremap <C-c> "+y<CR>
 nnoremap <C-v> "+gp<CR>
 
@@ -207,3 +230,29 @@ nmap ,tp :w<CR>:terminal<CR>python %<CR>
 nmap ,jc :w<CR>!javac %<CR>:!java %<CR>
 nmap ,cc :w<CR>:!gcc %<CR>
 nmap ,cr :!%.exe<CR>
+" shortcut for split vertically
+nmap '] :w<CR>:vsplit<CR>
+"shortcut for horizontal split
+nmap ']h :w<CR>:split<CR>
+nnoremap <leader>e :q<CR>
+
+highlight Normal           guifg=#dfdfdf ctermfg=15   guibg=#282c34 ctermbg=none  cterm=none
+highlight LineNr           guifg=#5b6268 ctermfg=8    guibg=#282c34 ctermbg=none  cterm=none
+highlight CursorLineNr     guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
+highlight VertSplit        guifg=#1c1f24 ctermfg=0    guifg=#5b6268 ctermbg=8     cterm=none
+highlight Statement        guifg=#98be65 ctermfg=2    guibg=none    ctermbg=none  cterm=none
+highlight Directory        guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=none
+highlight StatusLine       guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
+highlight StatusLineNC     guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
+highlight NERDTreeClosable guifg=#98be65 ctermfg=2
+highlight NERDTreeOpenable guifg=#5b6268 ctermfg=8
+highlight Comment          guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=italic
+highlight Constant         guifg=#3071db ctermfg=12   guibg=none    ctermbg=none  cterm=none
+highlight Special          guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=none
+highlight Identifier       guifg=#5699af ctermfg=6    guibg=none    ctermbg=none  cterm=none
+highlight PreProc          guifg=#c678dd ctermfg=5    guibg=none    ctermbg=none  cterm=none
+highlight String           guifg=#3071db ctermfg=12   guibg=none    ctermbg=none  cterm=none
+highlight Number           guifg=#ff6c6b ctermfg=1    guibg=none    ctermbg=none  cterm=none
+highlight Function         guifg=#ff6c6b ctermfg=1    guibg=none    ctermbg=none  cterm=none
+highlight Visual           guifg=#dfdfdf ctermfg=1    guibg=#1c1f24 ctermbg=none  cterm=none
+
