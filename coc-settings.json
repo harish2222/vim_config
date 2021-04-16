@@ -7,15 +7,24 @@
     "html",
     "yaml",
     "json",
-    "python"
+    "python",
+    "java",
+    "typescript",
+    "vim",
+    "nvim",
+    "lua",
+    "xml"
   ],
 
   // python config
 
-  "python.linting.pylintEnabled": true,
-  "python.formatting.provider": "autopep8",
   "python.autoUpdateLanguageServer": true,
   "python.jediEnabled": true,
+  "python.trace.server": "verbose",
+  "python.condaPath": "C:\\Users\\haris\\anaconda3",
+  "python.analysis.diagnosticEnabled": true,
+  "python.terminal.activateEnvironment": true,
+
   "eslint.format.enable": true,
   "prettier.formatterPriority": 1,
   "clangd.enabled": true,
@@ -28,12 +37,34 @@
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.optimizeStylesheetParsing": true,
   "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
-
+  "tsserver.enable": true,
+  "tsserver.trace.server": "verbose",
+  "html.trace.server": "verbose",
+  "css.trace.server": "verbose",
+  "vimlsp.trace.server": "verbose",
   "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
 
-  "vimlsp.filetypes": [
-    "vim",
-    "nvim"
-  ],
-  "clangd.path": "C:\\Users\\haris\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\11.0.0\\clangd_11.0.0\\bin\\clangd.exe"
+  "vimlsp.filetypes": ["vim", "nvim"],
+  "clangd.path": "C:\\Users\\haris\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\11.0.0\\clangd_11.0.0\\bin\\clangd.exe",
+  "xml.trace.server": "verbose",
+  "xml.java.home": "C:\\Program Files\\Java\\jdk-15",
+  "xml.format.enabled": true,
+  "xml.codeLens.enabled": true,
+  "yaml.trace.server": "verbose",
+  "yaml.completion": true,
+  "yaml.format.enable": true,
+  "angular.trace.server": "verbose",
+
+  "java.format.enabled": true,
+  "java.import.gradle.user.home": "C:\\Users\\haris\\.gradle",
+  "java.home": "C:\\Program Files\\Java\\jdk-15",
+  "java.enabled": true,
+  "java.completion.enabled": true,
+  "java.trace.server": "verbose",
+  "java.format.comments.enabled": true,
+  "javascript.showUnused": true,
+  "javascript.suggest.paths": true,
+  "javascript.suggest.autoImports": true,
+  "javascript.suggest.names": true,
+  "clangd.checkUpdates": true
 }

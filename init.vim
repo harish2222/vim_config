@@ -41,6 +41,16 @@ Plug 'joshdick/onedark.vim'
 "ctrlp
 Plug 'ctrlpvim/ctrlp.vim'
 
+" Floterm 
+Plug 'voldikss/vim-floaterm'
+
+"markdown
+Plug 'plasticboy/vim-markdown'
+
+" vim test 
+Plug 'janko-m/vim-test'
+
+
 call plug#end()
 
 set relativenumber
@@ -175,7 +185,6 @@ let g:airline#extensions#tabline#right_alt_sep = ''
 " Switch to your current theme
 let g:airline_theme = 'onedark'
 
-
 "ctrlp config
 let g:ctrlp_map = '<c-p>'
 
@@ -218,7 +227,7 @@ nmap <C-w> :bd<CR>
 
 nmap <C-s> :w<CR>
 nmap <C-q> :w<CR>:source %<CR>
-nnoremap <C-c> "+y<CR>
+nnoremap <leader>c "+y<CR>
 nnoremap <C-v> "+gp<CR>
 
 " For runnong pyhton without terminal
@@ -231,10 +240,42 @@ nmap ,jc :w<CR>!javac %<CR>:!java %<CR>
 nmap ,cc :w<CR>:!gcc %<CR>
 nmap ,cr :!%.exe<CR>
 " shortcut for split vertically
-nmap '] :w<CR>:vsplit<CR>
+nmap ']v :w<CR>:vsplit<CR>
 "shortcut for horizontal split
 nmap ']h :w<CR>:split<CR>
 nnoremap <leader>e :q<CR>
+
+"Floterm config
+let g:floaterm_keymap_toggle = '<F1>'
+let g:floaterm_keymap_next   = '<F2>'
+let g:floaterm_keymap_prev   = '<F3>'
+let g:floaterm_keymap_new    = '<F4>'
+
+" Floaterm
+let g:floaterm_gitcommit='floaterm'
+let g:floaterm_autoinsert=1
+let g:floaterm_width=0.8
+let g:floaterm_height=0.8
+let g:floaterm_wintitle=0
+let g:floaterm_autoclose=1
+
+"kite 
+let g:kite_auto_complete=0
+let g:kite_snippets=0
+set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+set laststatus=2  "always display the status line
+
+" vim test 
+" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>lt :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
+
+
+"Color highlight config
 
 highlight Normal           guifg=#dfdfdf ctermfg=15   guibg=#282c34 ctermbg=none  cterm=none
 highlight LineNr           guifg=#5b6268 ctermfg=8    guibg=#282c34 ctermbg=none  cterm=none
