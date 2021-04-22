@@ -21,9 +21,17 @@
   "python.autoUpdateLanguageServer": true,
   "python.jediEnabled": true,
   "python.trace.server": "verbose",
-  "python.condaPath": "C:\\Users\\haris\\anaconda3",
+  "python.condaPath": "C:\\Users\\haris\\anaconda3\\python.exe",
   "python.analysis.diagnosticEnabled": true,
   "python.terminal.activateEnvironment": true,
+  "suggest.timeout": 10000,
+  "suggest.detailField": "preview",
+  "suggest.autoTrigger": "always",
+  "suggest.floatEnable": true,
+  "suggest.removeDuplicateItems": false,
+
+  "pyright.trace.server": "verbose",
+  "pyright.enable": true,
 
   "eslint.format.enable": true,
   "prettier.formatterPriority": 1,
@@ -66,5 +74,29 @@
   "javascript.suggest.paths": true,
   "javascript.suggest.autoImports": true,
   "javascript.suggest.names": true,
-  "clangd.checkUpdates": true
+
+  "clangd.serverCompletionRanking": true,
+  "clangd.disableCompletion": false,
+  "clangd.disableDiagnostics": false,
+  "clangd.disableSnippetCompletion": false,
+  "clangd.checkUpdates": true,
+  "html.suggest.angular1": true,
+
+  "coc.preferences.snippets.enable": true,
+  "coc.preferences.colorSupport": true,
+  "coc.preferences.rootPatterns": [".git", ".hg", ".projections.json"],
+  "tailwindCSS.emmetCompletions": true,
+  "yaml.hover": true,
+  "yank.priority": 5,
+  "yank.enableCompletion": true,
+
+  "pyright.completion.snippetSupport": true,
+  "python.formatting.provider": "autopep8",
+  "python.linting.enabled": false,
+  "python.linting.mypyArgs": [
+    "--ignore-missing-imports",
+    "--follow-imports=silent",
+    "--show-column-numbers"
+  ],
+  "python.pythonPath": "C:\\Users\\haris\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
 }
