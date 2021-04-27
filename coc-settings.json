@@ -24,6 +24,8 @@
   "python.condaPath": "C:\\Users\\haris\\anaconda3\\python.exe",
   "python.analysis.diagnosticEnabled": true,
   "python.terminal.activateEnvironment": true,
+  "pyright.organizeimports.provider": "pyright",
+  "python.venvFolders": ["envs", ".pyenv", ".direnv"],
   "suggest.timeout": 10000,
   "suggest.detailField": "preview",
   "suggest.autoTrigger": "always",
@@ -53,7 +55,7 @@
   "html.filetypes": ["html", "handlebars", "htmldjango", "blade"],
 
   "vimlsp.filetypes": ["vim", "nvim"],
-  "clangd.path": "C:\\Users\\haris\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\11.0.0\\clangd_11.0.0\\bin\\clangd.exe",
+  "clangd.path": "C:\\Users\\haris\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\12.0.0\\clangd_12.0.0\\bin\\clangd.exe",
   "xml.trace.server": "verbose",
   "xml.java.home": "C:\\Program Files\\Java\\jdk-15",
   "xml.format.enabled": true,

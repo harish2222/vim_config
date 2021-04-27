@@ -1,6 +1,6 @@
 "Plugin
 call plug#begin('~/.vim/plugged')
-Plug 'rakr/vim-one'                  " vim-one color theme
+Plug 'rakr/vim-one'                  " vim one color theme
 Plug 'scrooloose/nerdtree'           " side bar file tree
 Plug 'itchyny/lightline.vim'         " minmal status bar
 Plug 'tpope/vim-fugitive'            " allows git commands in vim session
@@ -49,9 +49,12 @@ Plug 'plasticboy/vim-markdown'
 
 " vim test 
 Plug 'janko-m/vim-test'
-" vim debugger
-Plug 'puremourning/vimspector'
+"commenting 
+Plug 'preservim/nerdcommenter'
 call plug#end()
+
+
+" set functions in vim
 
 set relativenumber
 " ncm2-loom
@@ -62,9 +65,34 @@ set incsearch
 set signcolumn=yes
 set colorcolumn=100
 set shortmess +=c
+set t_Co=256
 highlight Normal guibg=NONE
 "devicons setting fonts
 set guifont=Hack\ Nerd\ Font:h11
+
+set number                      " set line numbers
+set updatetime=100              " set update time for gitgutter update
+set noswapfile                  " no swap
+" tabs and spaces
+set expandtab                   " Use spaces instead of tabs.
+set smarttab                    " Uses shiftwidth and tabstap to insert blanks when <Tab>
+set shiftwidth=4                " One tab == four spaces.
+set tabstop=4                   " One tab == four spaces.<Paste>
+set scrolloff=6
+
+" Theme settings
+colorscheme one                  " use vim-one colorscheme
+set background=dark              " [dark or light]
+set termguicolors                " fg and bg highlighting requires compatible terminal colors
+" Window Splits
+set splitbelow splitright
+
+
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+
 
 " vim debugger
 let g:vimspector_enable_mappings = 'HUMAN'
@@ -135,13 +163,13 @@ let g:gitgutter_async=0
 " nerdtree settings
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']  " ignore pyc files
+let g:webdevicons_enable_nerdtree =1
+let g:webdevicons_enable_flagship_statusline = 1
 
-" Theme settings
-colorscheme one                  " use vim-one colorscheme
-set background=dark              " [dark or light]
-set termguicolors                " fg and bg highlighting requires compatible terminal colors
-" Window Splits
-set splitbelow splitright
+
+filetype plugin on
+
+
 " Remap splits navigation to just CTRL + hjkl
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -157,22 +185,13 @@ map <Leader>th <C-w>t<C-w>H
 map <Leader>tk <C-w>t<C-w>K
 " Start terminals for R and Python sessions '\tr' or '\tp'
 map <Leader>tr :new term://cmd<CR>iR<CR><C-\><C-n><C-w>k
-map <Leader>tp :new term://cmd<CR>ipython3<CR><C-\><C-n><C-w>k
+map <Leader>tp :new term://cmd<CR>ipython<CR><C-\><C-n><C-w>k
 map <Leader>td :new term://cmd<CR>isqlite3<CR><C-\><C-n><C-w>k
 map <Leader>tj :new term://cmd<CR>ijulia<CR><C-\><C-n><C-w>k
 map <Leader>ts :new term://cmd<CR>iscala<CR><C-\><C-n><C-w>k
 
 " General Settings
-set number                      " set line numbers
-set updatetime=100              " set update time for gitgutter update
-set noswapfile                  " no swap
-" tabs and spaces
-set expandtab                   " Use spaces instead of tabs.
-set smarttab                    " Uses shiftwidth and tabstap to insert blanks when <Tab>
-set shiftwidth=4                " One tab == four spaces.
-set tabstop=4                   " One tab == four spaces.<Paste>
-set scrolloff=6
-nmap ,nj :w<CR>:terminal<CR>:!node %<CR>
+
 
 " SQLite should use SQL highlights. See :help ft-sql for more info
 autocmd BufNewFile,BufRead *.sqlite set syntax=sql
@@ -198,56 +217,6 @@ let g:ctrlp_root_markers = ['pom.xml', '.p4ignore']
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows"
 
-
-" Always show tabs
-set showtabline=2
-
-" We don't need to see things like -- INSERT -- anymore
-set noshowmode
-
-" git integration 
-" Change these if you want
-let g:signify_sign_add               = '+'
-let g:signify_sign_delete            = '_'
-let g:signify_sign_delete_first_line = '‾'
-let g:signify_sign_change            = '~'
-
-" I find the numbers disctracting
-let g:signify_sign_show_count = 0
-let g:signify_sign_show_text = 1
-
-
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
-
-"custom keybindings
-let mapleader = ' '
-nmap <leader>1 :bn<CR>
-nmap <leader>2 :bp<CR>
-nmap <C-w> :bd<CR>
-
-nmap <C-s> :w<CR>
-nmap <C-q> :w<CR>:source %<CR>
-nnoremap <leader>c "+y<CR>
-nnoremap <C-v> "+gp<CR>
-
-" For runnong pyhton without terminal
-nmap ,p :w<CR>:!python %<CR>
-" For running python file in an interpreter
-nmap ,tp :w<CR>:terminal<CR>python %<CR>
-
-"for java file to compile and run
-nmap ,jc :w<CR>!javac %<CR>:!java %<CR>
-nmap ,cc :w<CR>:!gcc %<CR>
-nmap ,cr :!%.exe<CR>
-" shortcut for split vertically
-nmap ']v :w<CR>:vsplit<CR>
-"shortcut for horizontal split
-nmap ']h :w<CR>:split<CR>
-nnoremap <leader>e :q<CR>
-
 "Floterm config
 let g:floaterm_keymap_toggle = '<F1>'
 let g:floaterm_keymap_next   = '<F2>'
@@ -269,7 +238,14 @@ set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 set laststatus=2  "always display the status line
 
-" vim test 
+
+" Always show tabs
+set showtabline=2
+
+" We don't need to see things like -- INSERT -- anymore
+set noshowmode
+
+" Key Map for Test to run
 " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
 nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
@@ -277,26 +253,87 @@ nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>lt :TestLast<CR>
 nmap <silent> <leader>tv :TestVisit<CR>
 
+
+" git integration 
+" Change these if you want
+let g:signify_sign_add               = '+'
+let g:signify_sign_delete            = '_'
+let g:signify_sign_delete_first_line = '‾'
+let g:signify_sign_change            = '~'
+
+" I find the numbers disctracting
+let g:signify_sign_show_count = 0
+let g:signify_sign_show_text = 1
+
+
+"custom keybindings
+
+"our main leader key to do all the action 
+" My leader key is the Space bar
+let mapleader = ' '
+
+"to shift between tabs but backward way
+nmap <leader>1 :bn<CR>
+
+"to shift between the tabs forward way
+nmap <leader>2 :bp<CR>
+" to close the chrome tab or tabs present in the vim
+nmap <C-w> :bd<CR>
+
+" to close the tab as we use the command to close chrome tab Ctrl-w but here
+" we use "leader + w"
+nmap <leader>w :bd<CR>
+
+" THis is to save any file default method of using Ctrl-s to save file
+nmap <C-s> :w<CR>
+" this for saving and sourcing the file only used for vimrc to sourc it quickly
+nmap <C-q> :w<CR>:source %<CR>
+" for copying or yanking to the clip board
+nnoremap <leader>y "+y<CR>
+" for pasting something copied from the the clip board 
+nnoremap <leader>m "+gp<CR>
+
+" shortcut for split vertically
+nmap ']v :w<CR>:vsplit<CR>
+"shortcut for horizontal split
+nmap ']h :w<CR>:split<CR>
+nnoremap <leader>, :q<CR>
+
+nmap <leader>gi :Git<CR>
+
+" File handling  
+" For adding a new tab 
+nmap <leader>new :tabnew<CR>
+
+" For renameing the file 
+nmap <leader>re :CocCommand workspace.renameCurrentFile<CR>
+" to open new tab and write edit command and stop in command mode waiting for more command
+nmap <leader>nee :tabnew <CR>:edit 
+" This is map for function called as "Save As"
+nmap <leader>ss :w 
+" this is to create a new tab and type save command
+nmap <leader>ns :tabnew <CR>:w 
+
 augroup exe_code
     autocmd!
 
     " execute code for python code
-    autocmd FileType python nnoremap <buffer> <leader>r
-                \ :w<CR>:sp<CR>:terminal python %<CR> :startinsert<CR>
-   
-    autocmd FileType javascript nnoremap <buffer> <leader>r
+    autocmd FileType python nnoremap <buffer> <leader>ru
+                \ :w<CR>:sp<CR>:terminal python %<CR> 
+    "run code in node   
+    autocmd FileType javascript nnoremap <buffer> <leader>ru
                 \ :w<CR>:sp<CR>:terminal node %<CR> :startinsert <CR>
-
-    autocmd FileType c nnoremap <buffer> <leader>r
+"compiling and running c files
+    autocmd FileType c nnoremap <buffer> <leader>ru
                 \ :w<CR>:sp<CR>:terminal gcc % -o %:r.exe && %:r.exe <CR>
-    
-    autocmd FileType cpp nnoremap <buffer> <leader>r
+   "compiling and running c++ file 
+    autocmd FileType cpp nnoremap <buffer> <leader>ru
                 \ :w<CR>:sp<CR>:terminal g++ % -o %:r.exe && %:r.exe<CR>
-    
-    autocmd FileType java nnoremap <buffer> <leader>r
+   " compile an run java file 
+    autocmd FileType java nnoremap <buffer> <leader>ru
                 \ :w<CR>:sp<CR>:terminal javac % && java %<CR>
-
-    autocmd FileType typescript nnoremap <buffer> <leader>r
+   "run typescript file in node
+    autocmd FileType typescript nnoremap <buffer> <leader>ru
                 \ :w<CR>:sp<CR>:terminal node %<CR>:startinsert<CR>
     
 
