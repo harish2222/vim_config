@@ -21,7 +21,7 @@
   "python.autoUpdateLanguageServer": true,
   "python.jediEnabled": true,
   "python.trace.server": "verbose",
-  "python.condaPath": "C:\\Users\\haris\\anaconda3\\python.exe",
+  
   "python.analysis.diagnosticEnabled": true,
   "python.terminal.activateEnvironment": true,
   "pyright.organizeimports.provider": "pyright",
@@ -100,5 +100,5 @@
     "--follow-imports=silent",
     "--show-column-numbers"
   ],
-  "python.pythonPath": "C:\\Users\\haris\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
+  "python.pythonPath": "C:\\Users\\haris\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
 }
